@@ -1,14 +1,18 @@
 # Zorglangue Traductor
+
 A Python module that allows you to traduce the fake language Zorglangue from the Spirou comic strips. Works from a Latin language (originally French) to Zorglangue and vice versa. Eviv Bulgroz !
 
 ## Installation
-```
+
+```sh
 py -m pip install zorglangue-traductor
 ```
 
 ## How to use it
+
 Simply import the module into your Python 3 program, and you will be able to use the function `zorglonde` to traduce your string. The function takes a string as parameter and returns a string.
-```
+
+```python
 # Zorglangue Program
 # by Raphaël DENNI
 
@@ -29,4 +33,5 @@ while True:
 ```
 
 ## Results example
-![](https://i.imgur.com/JL9mOQN.png)
+
+![Example image](https://i.imgur.com/JL9mOQN.png)
