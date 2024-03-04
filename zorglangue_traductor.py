@@ -1,15 +1,46 @@
 # zorglangue-traductor
 # by Raphaël DENNI
 
-# Imports functions from shift.py and lower_upper.py
-from src.zorglangue_traductor.utils.shift import shift
-from src.zorglangue_traductor.utils.lower_upper import lower_upper
+# Function that lowers the letters of a string and capitalizes the first letter, if one uppercase letter is present
+def lower_upper(temp_list):
+    upper = False
+
+    for j in temp_list:
+        if j.isupper():
+            upper = True
+            break
+
+    if upper:
+        temp_list = (
+            ((str(temp_list[0])).upper()) + (("".join(temp_list[1:])).lower())
+        ).split(" ")
+
+
+# Function that shifts a punctuation character to the right in a list
+def shift(
+    temp_list, value, position=190000, mate=False
+):  # The position argument is set to a high value to avoid errors
+    if value in temp_list:
+        j = temp_list.index(value)
+        letter = temp_list[j + 1]
+
+        temp_list.remove(value)
+        temp_list.insert(position, value)
+
+        # The following case is specific to the apostrophe character
+        # because it is the only character that is shifted to the left with another character
+        # (e.g. with this, "l'appareil" becomes "l'lierappa" and not "lierappa'l")
+        if mate:
+            temp_list.remove(letter)
+            temp_list.insert(position, letter)
 
 
 # Function that translates a string into Zorglangue
 # Fun fact: Zorglonde is the name of the waves that transform people into Zorglhommes who speak Zorglangue
-def zorglonde(string):
-    string = string.split(" ")  # Split the string with spaces as separators to be able to reverse each word separately
+def zorglangue_traductor(string):
+    string = string.split(
+        " "
+    )  # Split the string with spaces as separators to be able to reverse each word separately
     zorg_string = []
 
     punctuation_list = [",", ";", ":", ".", "?", "!"]
@@ -18,7 +49,9 @@ def zorglonde(string):
     for i in range(0, len(string), 1):
         temp_list = list(string[i])
 
-        if len(temp_list) > 1:  # The next lines are not executed if the word is only one letter long to avoid errors
+        if (
+            len(temp_list) > 1
+        ):  # The next lines are not executed if the word is only one letter long to avoid errors
             temp_list.reverse()
 
             # The next lines shift common ponctuations characters to the right after reversing a word,
@@ -43,28 +76,3 @@ def zorglonde(string):
         zorg_string.append(" ")
 
     return "".join(zorg_string)
-
-
-"""
-    MIT License
-
-    Copyright (c) 2023 Raphaël Denni
-    
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-    
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-    
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE.
-"""
