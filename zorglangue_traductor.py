@@ -2,24 +2,6 @@
 # by Raphaël DENNI
 
 
-def lower_upper(temp_list):
-    """
-    Function that lowers the letters of a string and capitalizes the
-    first letter, if one uppercase letter is present.
-    """
-    upper = False
-
-    for j in temp_list:
-        if j.isupper():
-            upper = True
-            break
-
-    if upper:
-        temp_list = (
-            ((str(temp_list[0])).upper()) + (("".join(temp_list[1:])).lower())
-        ).split(" ")
-
-
 def shift(temp_list, value, position=190000, mate=False):
     """
     Function that shifts a punctuation character to the right in a list
@@ -36,44 +18,44 @@ def shift(temp_list, value, position=190000, mate=False):
             temp_list.insert(position, letter)
 
 
-def zorglangue_traductor(string):
+def zorglangue_traductor(input_str: str) -> str:
     """Function that translates a string into Zorglangue"""
-
-    string = string.split(" ")
-    zorg_string = []
-
     punctuation_list = [",", ";", ":", ".", "?", "!"]
 
-    # The next lines reverse each word of the string individually because they need to stay in the same order
-    for i in range(len(string)):
-        temp_list = list(string[i])
+    input_list = input_str.split(" ")
+    result_list = []
 
-        if len(temp_list) < 1:
+    # The next lines reverse each word of the string individually because they need to stay in the same order
+    for word in input_list:
+        if len(word) < 1:
             raise ValueError("The word must be at least one letter long")
 
-        temp_list.reverse()
+        word = word[::-1]
 
         # The next lines shift common ponctuations characters to the right after reversing a word,
         # because the function reverse() reverses these characters in a string
         # while they must remain at the same place.
         # This is necessary to correspond to the punctuation of the Zorglangue language
-        for j in punctuation_list:
-            shift(temp_list, j)
+        for punct in punctuation_list:
+            shift(word, punct)
 
         # The following case is specific to the apostrophe character
         # because it is the only character that is shifted to the left with another character
         # (e.g. with this, "l'appareil" becomes "l'lierappa" and not "lierappa'l")
-        shift(temp_list, "'", 0, True)
+        shift(word, "'", 0, True)
 
         # The next line makes the letters lowercase and if needed capitalizes the first letter of the new string,
         # because the function reverse() places the first letter, which is commonly capitalized,
         # at the end of the word/string.
-        # This is necessary to correspond to the letter capitalization of the Zorglangue language
-        lower_upper(temp_list)
+        # This is necessary to correspond to the letter capitalization of the Zorglangue language.
+        upper_chars = [char for char in word if char.isupper()]
 
-        zorg_string.extend(temp_list)
-        zorg_string.append(" ")
+        if len(upper_chars) == 1:
+            word = word.capitalize()
 
-    result = "".join(zorg_string)
+        result_list.extend(word)
+        result_list.append(" ")
 
-    return result
+    result_str = "".join(result_list)
+
+    return result_str
