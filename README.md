@@ -4,9 +4,16 @@ A Python module to translate any Latin language (originally French) to the Zorgl
 
 ## Installation
 
+### pip
+
 ```bash
 pip install zorglangue-traductor
 ```
+
+### poetry
+
+```bash
+poetry add zorglangue-traductor
 
 ## How to use it
 
