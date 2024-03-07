@@ -6,4 +6,4 @@ def test_zorglonde():
 
 
 def test_reverse_zorglonde():
-    assert zorglonde("Olleh dlrow! L'troffe.", reverse=True) == "Hello world! L'effort."
+    assert zorglonde("Olleh dlrow! L'troffe.") == "Hello world! L'effort."
