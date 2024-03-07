@@ -1,6 +1,6 @@
 # Zorglonde
 
-A Python module to translate any Latin language (originally French) to the Zorglangue fake language from the Spirou comic strips. Works in the two ways. Eviv Bulgroz!
+A Python module to transform any Latin language (originally French) to the Zorglangue fake language from the Spirou comic strips. Works in the two ways. Eviv Bulgroz!
 
 ## Installation
 
@@ -14,6 +14,7 @@ pip install git+https://github.com/raphaeldenni/zorglonde
 
 ```bash
 poetry add git+https://github.com/raphaeldenni/zorglonde
+```
 
 ## How to use it
 
