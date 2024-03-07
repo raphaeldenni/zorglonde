@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "zorglangue-traductor"
-version = "2.0.0"
-description = "A Python module to translate any Latin language (originally French) to the Zorglangue fake language from the Spirou comic strips. Works in the two ways. Eviv Bulgroz!"
+name = "zorglonde"
+version = "1.0.0"
+description = "A Python module to transform any Latin language (originally French) to the Zorglangue fake language from the Spirou comic strips. Works in the two ways. Eviv Bulgroz!"
 authors = ["Raphaël Denni"]
 license = "MIT"
 readme = "README.md"
-repository = "https://github.com/raphaeldenni/zorglangue-traductor"
+repository = "https://github.com/raphaeldenni/zorglonde"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",

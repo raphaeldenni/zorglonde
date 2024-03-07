@@ -1,14 +1,14 @@
-from zorglangue_traductor import zorglangue_traductor
+from zorglonde import zorglonde
 
-print("--- Zorglangue program ---\n---  by Raphaël Denni  ---\n")
+print("--- Zorglonde program ---\n---  by Raphaël Denni  ---\n")
 
 while True:
     text = input("Enter your string : ")
 
-    zt = zorglangue_traductor(text)
+    zorg = zorglonde(text)
 
     print(
-        f"\nEviv Bulgroz! : {zt}\n\nPress enter for an another sentence or Ctrl+C to quit."
+        f"\nEviv Bulgroz! : {zorg}\n\nPress enter for an another sentence or Ctrl+C to quit."
     )
 
     pause = input()

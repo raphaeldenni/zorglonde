@@ -1,8 +1,9 @@
-# zorglangue-traductor
-# by Raphaël DENNI
+# ========================================================================== #
+# Zorglonde by Raphaël Denni                                                 #
+# This is a simple Python function that translates a string into Zorglangue. #
+# ========================================================================== #
 
-
-def zorglangue_traductor(input_str: str) -> str:
+def zorglonde(input_str: str) -> str:
     """Function that translates a string into Zorglangue
 
     Args:

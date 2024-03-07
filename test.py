@@ -1,5 +1,5 @@
-from zorglangue_traductor import zorglangue_traductor
+from zorglonde import zorglonde
 
 
-def test_zorglangue_traductor():
-    assert zorglangue_traductor("Hello world! L'effort.") == "Olleh dlrow! L'troffe."
+def test_zorglonde():
+    assert zorglonde("Hello world! L'effort.") == "Olleh dlrow! L'troffe."
